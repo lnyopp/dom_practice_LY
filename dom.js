@@ -1,19 +1,28 @@
-var form = document.getElementById('addForm');
-var itemList = document.getElementById('items');
-form.addEventListener('submit',addItem);
-itemList.addEventListener('click',removeItem);
+var form = $('#addForm');
+var itemList = $('#items');
+// form.addEventListener('submit',addItem);
+// itemList.addEventListener('click',removeItem);
 
+var newItem = $('item').value;
 
+$( "<li></li>", {
+    "class": "list-group-item",
+    on: {
+      submit: function(e) {
+        itemList.append(newItem);
+      }
+    }
+}).appendTo( "ul" );
 
 function addItem(e){
     e.preventDefault();
 // get input value
-var newItem = document.getElementById('item').value;
+
 
 //create new li element
-var li = document.createElement('li')
+// var li = document.createElement('li')
 //add a class 
-li.className = 'list-group-item';
+// li.className = 'list-group-item';
 // add text node with input value
 li.appendChild(document.createTextNode(newItem));
 
